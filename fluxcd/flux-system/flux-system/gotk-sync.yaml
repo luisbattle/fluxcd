@@ -45,8 +45,8 @@ metadata:
   name: backend-sync
   namespace: flux-system
 spec:
-  interval: 10m0s
-  path: ./init\,release
+  interval: 2m0s
+  path: './init\,release'
   prune: true
   sourceRef:
     kind: GitRepository
