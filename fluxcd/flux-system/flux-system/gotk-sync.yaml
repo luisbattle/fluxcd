@@ -46,7 +46,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 2m0s
-  path: './init\,release'
+  path: 'release/prod\,init'
   prune: true
   sourceRef:
     kind: GitRepository
