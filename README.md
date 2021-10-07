@@ -1,5 +1,5 @@
 
-export GITHUB_TOKEN=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
+export GITHUB_TOKEN=
 
 flux-system flux bootstrap \
 github \
