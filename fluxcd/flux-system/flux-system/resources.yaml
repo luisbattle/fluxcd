@@ -1,0 +1,27 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: init-sync
+  namespace: flux-system
+spec:
+  interval: 2m0s
+  path: init
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: helm-charts
+  validation: client
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: helm-charts-sync
+  namespace: flux-system
+spec:
+  interval: 2m0s
+  path: release/prod
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: helm-charts
+  validation: client 
