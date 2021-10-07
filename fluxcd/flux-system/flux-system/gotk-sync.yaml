@@ -12,6 +12,19 @@ spec:
     name: flux-system
   url: ssh://git@github.com/luisbattle/fluxcd
 ---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: backend
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  ref:
+    branch: master
+  secretRef:
+    name: flux-system
+  url: ssh://git@github.com/luisbattle/helm-charts
+---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
