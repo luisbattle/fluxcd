@@ -43,4 +43,3 @@ github \
 ➜  flux-system
 
 # Flux Uninstall
-
