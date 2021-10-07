@@ -12,19 +12,6 @@ spec:
     name: flux-system
   url: ssh://git@github.com/luisbattle/fluxcd
 ---
-apiVersion: source.toolkit.fluxcd.io/v1beta1
-kind: GitRepository
-metadata:
-  name: helm-charts
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  ref:
-    branch: main
-  secretRef:
-    name: flux-system
-  url: ssh://git@github.com/luisbattle/helm-charts
----
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
@@ -38,31 +25,3 @@ spec:
     kind: GitRepository
     name: flux-system
   validation: client
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
-kind: Kustomization
-metadata:
-  name: init-sync
-  namespace: flux-system
-spec:
-  interval: 2m0s
-  path: init
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: helm-charts
-  validation: client
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
-kind: Kustomization
-metadata:
-  name: helm-charts-sync
-  namespace: flux-system
-spec:
-  interval: 2m0s
-  path: release/prod
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: helm-charts
-  validation: client 
