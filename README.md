@@ -1,5 +1,7 @@
 
-export GITHUB_TOKEN=
+export GITHUB_TOKEN=1234
+
+# Flux Install
 
 flux-system flux bootstrap \
 github \
@@ -39,4 +41,6 @@ github \
 ✔ source-controller: deployment ready
 ✔ all components are healthy
 ➜  flux-system
+
+# Flux Uninstall
 
